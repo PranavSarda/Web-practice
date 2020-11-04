@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Basic Calculator</title>
+        
+        <link rel="stylesheet" href="calculator.css">
+
+        <script src="calculator.js"></script>
+
+    </head>
+
+    <body>
+        <div id="container">
+            
+            <div id="heading">
+                <h1>Calculator</h1>
+            </div>
+            
+            <div id="calculator">
+                
+                <div class="window">
+                    <input type="text" readonly size=18 id="screen" value="">
+                </div> 
+                <br>
+                
+                <div class="calci-row">
+                    <input type="button" class="numbutton" value=7 onclick="input('7')">
+                    <input type="button" class="numbutton" value=8 onclick="input('8')">
+                    <input type="button" class="numbutton" value=9 onclick="input('9')">
+                    <input type="button" class="opbutton" value="/" onclick="input('/')">
+                </div>
+                <br>
+
+                <div class="calci-row">
+                    <input type="button" class="numbutton" value=4 onclick="input('4')">
+                    <input type="button" class="numbutton" value=5 onclick="input('5')">
+                    <input type="button" class="numbutton" value=6 onclick="input('6')">
+                    <input type="button" class="opbutton" value="*" onclick="input('*')">
+                </div>
+                <br>
+
+                <div class="calci-row">
+                    <input type="button" class="numbutton" value=1 onclick="input('1')">
+                    <input type="button" class="numbutton" value=2 onclick="input('2')">
+                    <input type="button" class="numbutton" value=3 onclick="input('3')">
+                    <input type="button" class="opbutton" value="-" onclick="input('-')">
+                </div>
+                <br>
+
+                <div class="calci-row">
+                    <input type="button" class="clbutton" value="CE" onclick="cl()"> <!--clear() function not getting called here. Why?-->
+                    <input type="button" class="numbutton" value=0 onclick="input('0')">
+                    <input type="button" class="eqbutton" value="=" onclick="calculate()">
+                    <input type="button" class="opbutton" value="+" onclick="input('+')">
+                </div>
+                <br>
+
+            </div>
+
+            <br>
+            <p id="demo"></p>
+        
+        </div>
+    </body>
+
+</html>
