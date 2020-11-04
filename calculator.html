@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Basic Calculator</title>
+        
+        <style>
+            body {
+                background-color: cadetblue;
+            }
+
+            #heading {
+                text-align: center;
+                font-size: 1.5rem;
+            }
+
+            #calculator {
+                background-color: #312424;
+                position: relative;
+                height: 300px;
+                width: 250px;
+                border-radius: 10px;
+                top: 2rem;
+                left: 50%;
+                margin-left: -125px;
+            }
+
+            .window {
+                background-color: rgb(18, 19, 17);
+                position: relative;
+                width: 220px;
+                height: 40px;
+                top: 20px;
+                left: 15px;
+            }
+            
+            .window input {
+                color: black;
+                background-color: rgba(106, 190, 23, 0.83);
+                position: relative;
+                left: 2px;
+                top: 2px;
+                height: 31px;
+                width: 209px;
+                font-size: 21px;
+                text-align: right;
+                font-weight: 600;
+            }
+
+            .calci-row {
+                position: relative;
+                top: 19px;
+                border-top: 5px solid transparent;
+            }
+
+            .calci-row input {
+                position: relative;
+                width: 40px;
+                height: 30px;
+                border: none;
+                border-radius: 6px;
+                margin-left: 16px;
+                cursor: pointer;
+                border-top: 2px solid transparent;
+                font-weight: 600;
+            }
+
+            .calci-row .numbutton {
+                background-color: darkgray;
+            }
+
+            .calci-row .opbutton {
+                background-color: chocolate;
+            }
+
+            .calci-row .clbutton {
+                background-color: chartreuse;
+            }
+            
+            .calci-row .eqbutton {
+                background-color: rgb(58, 155, 246);
+            }
+
+        </style>
+
+
+    </head>
+
+    <body>
+        <div id="heading">
+            <h1>Calculator</h1>
+        </div>
+        
+        <div id="calculator">
+            
+            <div class="window">
+                <input type="text" readonly size=18 id="screen" value="">
+            </div> 
+            <br>
+            
+            <div class="calci-row">
+                <input type="button" class="numbutton" value=7 onclick="input('7')">
+                <input type="button" class="numbutton" value=8 onclick="input('8')">
+                <input type="button" class="numbutton" value=9 onclick="input('9')">
+                <input type="button" class="opbutton" value="/" onclick="input('/')">
+            </div>
+            <br>
+
+            <div class="calci-row">
+                <input type="button" class="numbutton" value=4 onclick="input('4')">
+                <input type="button" class="numbutton" value=5 onclick="input('5')">
+                <input type="button" class="numbutton" value=6 onclick="input('6')">
+                <input type="button" class="opbutton" value="*" onclick="input('*')">
+            </div>
+            <br>
+
+            <div class="calci-row">
+                <input type="button" class="numbutton" value=1 onclick="input('1')">
+                <input type="button" class="numbutton" value=2 onclick="input('2')">
+                <input type="button" class="numbutton" value=3 onclick="input('3')">
+                <input type="button" class="opbutton" value="-" onclick="input('-')">
+            </div>
+            <br>
+
+            <div class="calci-row">
+                <input type="button" class="clbutton" value="CE" onclick="cl()"> <!--clear() function not getting called here. Why?-->
+                <input type="button" class="numbutton" value=0 onclick="input('0')">
+                <input type="button" class="eqbutton" value="=" onclick="calculate()">
+                <input type="button" class="opbutton" value="+" onclick="input('+')">
+            </div>
+            <br>
+
+        </div>
+
+        <br>
+        <p id="demo"></p>
+
+    </body>
+
+    <!--Shifted script below to load whole HTML first, then JS.-->
+    <script type ="text/javascript">
+        function input(parameter1) {
+            var prev = document.getElementById("screen").value;
+            if (prev == null || prev == '') {
+                prev = '';
+            }
+            curr = prev + parameter1;
+            //document.getElementById("demo").innerHTML = curr;
+            document.getElementById("screen").value = curr;
+        }
+
+        function clear() {  
+            //alert("clear");
+            curr = "";
+            document.getElementById("screen").value = curr;
+            //document.getElementById("demo").innerHTML = curr;
+        }
+
+        function cl() {
+            clear();
+        }
+
+        function calculate() {
+            try {
+                curr = eval(document.getElementById("screen").value);
+            }
+            catch(e) {
+                alert("Error");
+                curr = "0"
+            }
+            document.getElementById("screen").value = curr;
+            //document.getElementById("demo").innerHTML = curr;
+        }
+    </script>
+
+</html>
