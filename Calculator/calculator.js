@@ -8,15 +8,11 @@ function input(parameter1) {
     document.getElementById("screen").value = curr;
 }
 
-function clear() {  
+function clear1() {  
     //alert("clear");
     curr = "";
     document.getElementById("screen").value = curr;
     //document.getElementById("demo").innerHTML = curr;
-}
-
-function cl() {
-    clear();
 }
 
 function calculate() {
